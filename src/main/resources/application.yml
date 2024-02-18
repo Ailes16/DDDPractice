@@ -1,9 +1,23 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/devtools
-    username: devtools
-    password: admin
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    # local mysql
+    # url: jdbc:mysql://localhost:3306/devtools
+    # username: devtools
+    # password: admin
+    # driver-class-name: com.mysql.cj.jdbc.Driver
+    # local h2
+    url: jdbc:h2:mem:dddpractice;DB_CLOSE_ON_EXIT=TRUE;MODE=MySQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    initialize: true
+  sql:
+    init:
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+  h2:
+    console:
+      enabled: true
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
